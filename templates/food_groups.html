@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<table>
+    <thead>
+        <tr>
+        <th>Food Groups</th>         
+        </tr>
+                </thead>
+                <tbody>
+                {% for row in rows %}
+                <tr>
+                <td><a href="{{ url_for('foods', food_group_id=row[0]) }}">
+                    {{row[1]}}
+                </a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
