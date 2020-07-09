@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<p>Food Group Name : {{food_group_name[0][1]}}</p>
+<table>
+    <thead>
+        <tr>
+        <th>Short Description</th>
+        <th>Nitrogen&emsp;</th>
+        <th>Protein&emsp;</th>  
+        <th>Fat&emsp;&emsp;</th>
+        <th>Calorine&emsp;</th>      
+        </tr>
+                </thead>
+                <tbody>
+                {% for row in rows %}
+                <tr>
+                <td>{{row[3]}}</td>
+                <td>{{row[10]}}</td>
+                <td>{{row[11]}}</td>
+                <td>{{row[12]}}</td>
+                <td>{{row[13]}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
