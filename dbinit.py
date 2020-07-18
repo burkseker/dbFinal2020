@@ -39,24 +39,6 @@ conn.executemany("""INSERT INTO `food` (id,food_group_id,long_desc,short_desc,co
 
 conn.commit()
 
-conn.execute('DROP TABLE IF EXISTS `nutrient`')
-
-conn.execute('''CREATE TABLE `nutrient` (
-  id int PRIMARY KEY NOT NULL,
-  units text NOT NULL,
-  tagname text NOT NULL DEFAULT '',
-  name text NOT NULL,
-  num_decimal_places text NOT NULL,
-  sr_order int NOT NULL
-  )''')
-
-data3=[row.rstrip('\n').split('^') for row in open('data\\NUTR_DEF.txt','r').readlines()]
-
-conn.executemany("""INSERT INTO `nutrient` (id,units,tagname,name,num_decimal_places,sr_order)
-  VALUES (?, ?, ?, ?, ?, ?);""", data3)
-
-conn.commit()
-
 conn.execute('DROP TABLE IF EXISTS `nutrition`')
 
 conn.execute('''CREATE TABLE `nutrition` (
