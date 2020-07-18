@@ -33,6 +33,22 @@ def foods(food_group_id):
     finally:
         conn.close()
 
+@app.route("/viewfood/<int:food_id>/", methods=['GET', 'POST'])
+def viewfood(food_id):
+
+    conn = sqlite3.connect('database.db')
+    d = conn.cursor()
+    d.execute('SELECT * FROM food WHERE id=?',[food_id])
+    row = d.fetchall()
+    m = conn.cursor()
+    m.execute('SELECT * FROM food_group WHERE id=?',[row[0][1]])
+
+    try:
+        return render_template('view_food.html',title='ViewFood',rows =row,food_group_name=m.fetchall())
+    finally:
+        conn.close()
+
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1",port=8080, debug=True)
