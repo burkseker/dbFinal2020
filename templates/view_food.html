@@ -4,3 +4,73 @@
 <p>Long Description :  {{rows[0][2]}}</p>
 <p>Manufacturer Name : {{rows[0][5]}}</p>
 <p>Scientific Name :   {{rows[0][9]}}</p>
+
+<p>Weight Details:     </p>
+
+<table>
+    <thead>
+        <tr>
+        <th>sequence_num</th>
+        <th>amount</th>
+        <th>description&emsp;</th>
+        <th>gm_weight&emsp;</th>
+        <th>num_data_pts&emsp;</th>  
+        <th>std_dev&emsp;&emsp;</th>
+        </tr>
+                </thead>
+                <tbody>
+                {% for weight in weights %}
+                <tr>
+                <td>{{weight[1]}}</td>
+                <td>{{weight[2]}}</td>
+                <td>{{weight[3]}}</td>
+                <td>{{weight[4]}}</td>
+                <td>{{weight[5]}}</td>
+                <td>{{weight[6]}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            
+<p>Nutrition Details:     </p>
+
+<table>
+    <thead>
+        <tr>
+        <th>amount</th>
+        <th>num_data_points</th>
+        <th>std_error&emsp;</th>
+        <th>source_code&emsp;</th>
+        <th>derivation_code&emsp;</th>  
+        <th>added_nutrient&emsp;&emsp;</th>
+        <th>num_studients&emsp;</th>
+        <th>min&emsp;</th>   
+        <th>max&emsp;</th>
+        <th>degrees_freedom&emsp;</th> 
+        <th>lower_error_bound&emsp;</th>  
+        <th>upper_error_bound&emsp;</th>
+        <th>comments&emsp;</th>
+        <th>modification_date&emsp;</th>
+        </tr>
+                </thead>
+                <tbody>
+                {% for nutrition in nutritions %}
+                <tr>
+                <td>{{nutrition[2]}}</td>
+                <td>{{nutrition[3]}}</td>
+                <td>{{nutrition[4]}}</td>
+                <td>{{nutrition[5]}}</td>
+                <td>{{nutrition[6]}}</td>
+                <td>{{nutrition[8]}}</td>
+                <td>{{nutrition[9]}}</td>
+                <td>{{nutrition[10]}}</td>
+                <td>{{nutrition[11]}}</td>
+                <td>{{nutrition[12]}}</td>
+                <td>{{nutrition[13]}}</td>
+                <td>{{nutrition[14]}}</td>
+                <td>{{nutrition[15]}}</td>
+                <td>{{nutrition[16]}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>

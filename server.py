@@ -38,16 +38,24 @@ def foods(food_group_id):
 def viewfood(food_id):
 
     conn = sqlite3.connect('database.db')
+
     d = conn.cursor()
     d.execute('SELECT * FROM food WHERE id=?',[food_id])
     row = d.fetchall()
+
     m = conn.cursor()
     m.execute('SELECT * FROM food_group WHERE id=?',[row[0][1]])
 
-    
+    nutr = conn.cursor()
+    nutr.execute('SELECT * FROM nutrition WHERE food_id=?',[food_id])
+
+    weight = conn.cursor()
+    weight.execute('SELECT * FROM weight WHERE food_id=?',[food_id])
 
     try:
-        return render_template('view_food.html',title='ViewFood',rows =row,food_group_name=m.fetchall())
+        return render_template('view_food.html',title='ViewFood',rows =row,
+            food_group_name=m.fetchall(),nutritions=nutr.fetchall(),
+            weights=weight.fetchall())
     finally:
         conn.close()
 
