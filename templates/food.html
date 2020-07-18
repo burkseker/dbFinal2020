@@ -5,6 +5,7 @@
         <tr>
         <th>Short Description</th>
         <th>View Food&emsp;</th>
+        <th>Update Food&emsp;</th>
         <th>Nitrogen&emsp;</th>
         <th>Protein&emsp;</th>  
         <th>Fat&emsp;&emsp;</th>
@@ -16,6 +17,7 @@
                 <tr>
                 <td>{{row[3]}}</td>
                 <td><a href="{{ url_for('viewfood', food_id=row[0]) }}">View Food</a></td>
+                <td><a href="{{ url_for('updatefood', food_id=row[0]) }}">Update Food</a></td>
                 <td>{{row[10]}}</td>
                 <td>{{row[11]}}</td>
                 <td>{{row[12]}}</td>
