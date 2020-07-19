@@ -16,5 +16,7 @@ env\Scripts\activate    #activate virtual environment (I work on windows and the
 pip install flask       #install flask module (when flask module installed, 
                         #pages works without virtual environment)
 
+pip install flask_wtf   #installed for flask forms.
+
 python server.py        #starts to work webpages.
 
