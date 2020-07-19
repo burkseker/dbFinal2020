@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<form method="POST" action="">
-    <table>
-        <thead>
-            <tr>
-            <th>Food Groups</th>         
-            </tr>
-        </thead>
-                    <tbody>
-                    {% for row in rows %}
-                    <tr>
-                    <td><a href="{{ url_for('foods', food_group_id=row[0]) }}">
-                        {{row[1]}}
-                    </a></td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-    </table>
-</form>
+<html>
+<head>
+<style>
+#mytable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#mytable td, #mytable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#mytable tr:nth-child(even){background-color: #f2f2f2;}
+
+#mytable tr:hover {background-color: #ddd;}
+
+#mytable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <form method="POST" action="">
+        <table id="mytable">
+            <thead>
+                <tr>
+                <th>Food Groups</th>         
+                </tr>
+            </thead>
+                        <tbody>
+                        {% for row in rows %}
+                        <tr>
+                        <td><a href="{{ url_for('foods', food_group_id=row[0]) }}">
+                            {{row[1]}}
+                        </a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+        </table>
+    </form>
+</body>
+</html>

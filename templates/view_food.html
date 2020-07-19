@@ -1,67 +1,114 @@
 <!DOCTYPE html>
-<p>Food Group :        {{food_group_name[0][1]}}</p>
-<p>Short Description : {{rows[0][3]}}</p>
-<p>Long Description :  {{rows[0][2]}}</p>
-<p>Manufacturer Name : {{rows[0][5]}}</p>
-<p>Scientific Name :   {{rows[0][9]}}</p>
+<html>
+<head>
+    <style>
+        #mytable {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-<p>Weight Details:     </p>
+        #mytable td,
+        #mytable th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-<table>
-    <thead>
-        <tr>
-        <th>sequence_num</th>
-        <th>amount</th>
-        <th>description&emsp;</th>
-        <th>gm_weight&emsp;</th>
-        <th>num_data_pts&emsp;</th>  
-        <th>std_dev&emsp;&emsp;</th>
-        </tr>
-                </thead>
-                <tbody>
-                {% for weight in weights %}
-                <tr>
+        #mytable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #mytable tr:hover {
+            background-color: #ddd;
+        }
+
+        #mytable th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>Food Group :</th>
+                <th>Short Description </th>
+                <th>Long Description :&emsp;</th>
+                <th>Manufacturer Name :&emsp;</th>
+                <th>Scientific Name :&emsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{food_group_name[0][1]}}</td>
+                <td> {{rows[0][3]}}</td>
+                <td>{{rows[0][2]}}</td>
+                <td>{{rows[0][5]}}</td>
+                <td>{{rows[0][9]}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Weight Details: </p>
+
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>sequence_num</th>
+                <th>amount</th>
+                <th>description&emsp;</th>
+                <th>gm_weight&emsp;</th>
+                <th>num_data_pts&emsp;</th>
+                <th>std_dev&emsp;&emsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for weight in weights %}
+            <tr>
                 <td>{{weight[1]}}</td>
                 <td>{{weight[2]}}</td>
                 <td>{{weight[3]}}</td>
                 <td>{{weight[4]}}</td>
                 <td>{{weight[5]}}</td>
                 <td>{{weight[6]}}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            
-<p>Nutrition Details:     </p>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-<table>
-    <thead>
-        <tr>
-        <th>amount</th>
-        <th>num_data_points</th>
-        <th>std_error&emsp;</th>
-        <th>source_code&emsp;</th>
-        <th>derivation_code&emsp;</th>  
-        <th>added_nutrient&emsp;&emsp;</th>
-        <th>num_studients&emsp;</th>
-        <th>min&emsp;</th>   
-        <th>max&emsp;</th>
-        <th>degrees_freedom&emsp;</th> 
-        <th>lower_error_bound&emsp;</th>  
-        <th>upper_error_bound&emsp;</th>
-        <th>comments&emsp;</th>
-        <th>modification_date&emsp;</th>
-        </tr>
-                </thead>
-                <tbody>
-                {% for nutrition in nutritions %}
-                <tr>
+    <p>Nutrition Details: </p>
+
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>amount</th>
+                <th>num_data_points</th>
+                <th>std_error&emsp;</th>
+                <th>source_code&emsp;</th>
+                <th>derivation_code&emsp;</th>
+                <th>num_studients&emsp;</th>
+                <th>min&emsp;</th>
+                <th>max&emsp;</th>
+                <th>degrees_freedom&emsp;</th>
+                <th>lower_error_bound&emsp;</th>
+                <th>upper_error_bound&emsp;</th>
+                <th>comments&emsp;</th>
+                <th>modification_date&emsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nutrition in nutritions %}
+            <tr>
                 <td>{{nutrition[2]}}</td>
                 <td>{{nutrition[3]}}</td>
                 <td>{{nutrition[4]}}</td>
                 <td>{{nutrition[5]}}</td>
                 <td>{{nutrition[6]}}</td>
-                <td>{{nutrition[8]}}</td>
                 <td>{{nutrition[9]}}</td>
                 <td>{{nutrition[10]}}</td>
                 <td>{{nutrition[11]}}</td>
@@ -70,7 +117,10 @@
                 <td>{{nutrition[14]}}</td>
                 <td>{{nutrition[15]}}</td>
                 <td>{{nutrition[16]}}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

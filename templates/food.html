@@ -1,6 +1,46 @@
 <!DOCTYPE html>
-<p>Food Group Name : {{food_group_name[0][1]}}</p>
-<table>
+<html>
+<head>
+<style>
+#mytable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#mytable td, #mytable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#mytable tr:nth-child(even){background-color: #f2f2f2;}
+
+#mytable tr:hover {background-color: #ddd;}
+
+#mytable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<table id="mytable">
+    <thead>
+        <tr>
+        <th>Food Group Name :</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+        <td>{{food_group_name[0][1]}}</td>
+        </tr>
+    </tbody>
+</table>
+<table id="mytable">
     <thead>
         <tr>
         <th>Short Description</th>
@@ -26,3 +66,5 @@
                 {% endfor %}
                 </tbody>
             </table>
+        </body>
+</html>

@@ -1,80 +1,102 @@
 <!DOCTYPE html>
+<html>
 
-<div class="content-section">
-    <form method="POST" action="">
-        {{ form.csrf_token }}
-        <div class="form-group">
-            {{ form.group.label(class="form-control-label") }}
-            {% if form.group.errors %}
+<head>
+    <style>
+        .myDiv {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: rgb(3, 3, 3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="myDiv">
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.group.label(class="form-control-label") }}
+                {% if form.group.errors %}
                 {{ form.group(class="form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
                     {% for error in form.group.errors %}
-                        <span>{{ error }}</span>
+                    <span>{{ error }}</span>
                     {% endfor %}
                 </div>
-            {% else %}
+                {% else %}
                 {{ form.group(class="form-control form-control-lg") }}
-            {% endif %}
-        </div>
+                {% endif %}
+            </div>
 
             <div class="form-group">
                 {{ form.longdes.label(class="form-control-label") }}
                 {% if form.longdes.errors %}
-                    {{ form.longdes(class="form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.longdes.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
+                {{ form.longdes(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.longdes.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
                 {% else %}
-                    {{ form.longdes(class="form-control form-control-lg") }}
+                {{ form.longdes(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
 
             <div class="form-group">
                 {{ form.shortdes.label(class="form-control-label") }}
                 {% if form.shortdes.errors %}
-                    {{ form.shortdes(class="form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.shortdes.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
+                {{ form.shortdes(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.shortdes.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
                 {% else %}
-                    {{ form.shortdes(class="form-control form-control-lg") }}
+                {{ form.shortdes(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
 
             <div class="form-group">
                 {{ form.manu.label(class="form-control-label") }}
                 {% if form.manu.errors %}
-                    {{ form.manu(class="form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.manu.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
+                {{ form.manu(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.manu.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
                 {% else %}
-                    {{ form.manu(class="form-control form-control-lg") }}
-            {% endif %}
+                {{ form.manu(class="form-control form-control-lg") }}
+                {% endif %}
             </div>
 
             <div class="form-group">
                 {{ form.sci.label(class="form-control-label") }}
                 {% if form.sci.errors %}
-                    {{ form.sci(class="form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.sci.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
+                {{ form.sci(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.sci.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
                 {% else %}
-                    {{ form.sci(class="form-control form-control-lg") }}
-            {% endif %}
+                {{ form.sci(class="form-control form-control-lg") }}
+                {% endif %}
             </div>
             <a href="{{ url_for('food_group') }}">
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
-            </div></a>
-    </form>
-</div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </a>
+        </form>
+    </div>
+</body>
+
+</html>
