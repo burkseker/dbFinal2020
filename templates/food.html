@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-#mytable {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+    <style>
+        #mytable {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-#mytable td, #mytable th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+        #mytable td,
+        #mytable th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-#mytable tr:nth-child(even){background-color: #f2f2f2;}
+        #mytable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-#mytable tr:hover {background-color: #ddd;}
+        #mytable tr:hover {
+            background-color: #ddd;
+        }
 
-#mytable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+        #mytable th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-<table id="mytable">
-    <thead>
-        <tr>
-        <th>Food Group Name :</th>
-        <th></th>
-    </thead>
-    <tbody>
-        <tr>
-        <td>{{food_group_name[0][1]}}</td>
-        </tr>
-    </tbody>
-</table>
-<table id="mytable">
-    <thead>
-        <tr>
-        <th>Short Description</th>
-        <th>View Food&emsp;</th>
-        <th>Update Food&emsp;</th>
-        <th>Nitrogen&emsp;</th>
-        <th>Protein&emsp;</th>  
-        <th>Fat&emsp;&emsp;</th>
-        <th>Calorine&emsp;</th>      
-        </tr>
-                </thead>
-                <tbody>
-                {% for row in rows %}
-                <tr>
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>Food Group Name :</th>
+                <th></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{food_group_name[0][1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>Short Description</th>
+                <th>View Food&emsp;</th>
+                <th>Update Food&emsp;</th>
+                <th>Nitrogen&emsp;</th>
+                <th>Protein&emsp;</th>
+                <th>Fat&emsp;&emsp;</th>
+                <th>Calorine&emsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
                 <td>{{row[3]}}</td>
                 <td><a href="{{ url_for('viewfood', food_id=row[0]) }}">View Food</a></td>
                 <td><a href="{{ url_for('updatefood', food_id=row[0]) }}">Update Food</a></td>
@@ -62,9 +68,10 @@
                 <td>{{row[11]}}</td>
                 <td>{{row[12]}}</td>
                 <td>{{row[13]}}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </body>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
 </html>
